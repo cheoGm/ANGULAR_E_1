@@ -1,0 +1,9 @@
+<h3>
+  user-list!
+</h3>
+
+<ul>
+    <li *ngFor="let user of users"> 
+      <app-user-info [user]="user"></app-user-info>
+      </li>
+</ul>
