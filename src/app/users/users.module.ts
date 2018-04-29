@@ -7,13 +7,19 @@ import { UserAddComponent } from './user-add/user-add.component';
 
 import { UserService } from './user.service';
 import { UserInfoComponent } from './user-info/user-info.component';
+import { UsersIndexComponent } from './users-index/users-index.component';
 
 @NgModule({
   imports: [
     CommonModule,
     UsersRoutingModule
   ],
-  declarations: [UserListComponent, UserAddComponent, UserInfoComponent],
+  declarations: [UserListComponent, UserAddComponent, UserInfoComponent, UsersIndexComponent],
   providers:[UserService]
 })
-export class UsersModule { }
+export class UsersModule { 
+
+
+
+  
+}
