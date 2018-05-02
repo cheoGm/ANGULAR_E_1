@@ -1,9 +1,8 @@
-<h3>
-  user-list!
-</h3>
 
-<ul>
-    <li *ngFor="let user of users"> 
-      <app-user-info [user]="user"></app-user-info>
-      </li>
+<ul class="container">
+    <li *ngFor="let user of users" class="row"> 
+      <app-user-info [user]="user" class="col-sm-4 offset-2"></app-user-info>
+      <button (click)="setEditUser(user)"  class="btn btn-warning offset-1"><fa name="edit"></fa>Edit</button>
+      <button (click)="deleteUser(user)"  class="btn btn-danger offset-1"><fa name="trash"></fa>Delete</button>
+    </li>
 </ul>

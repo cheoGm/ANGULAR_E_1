@@ -1,4 +1,41 @@
-<h3>
-  user-add!
-</h3>
-<button class="btn btn-info " (click)="addUser()">add new User</button>
+
+<div>
+  <form class="col-xs-4" (ngSubmit)="onSubmit(userForm)" #userForm="ngForm">
+    <div class="form-group">
+      <label for="userName">Name: </label>
+      <input [(ngModel)]="user.name" name="userName" type="text" 
+              class="form-control" id="userName" 
+              minlength="3"
+              required pattern="[a-z A-Z]*"
+              required 
+              #userName = "ngModel"/>
+              <div [hidden]="userName.valid || userName.pristine" 
+              class="alert alert-warning"
+              *ngIf="userName.errors && userName.errors.required">
+              <fa name="exclamation-triangle"></fa>User name is required
+            </div>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name: </label>
+      <input name="lastName" [(ngModel)]="user.lastName" type="text" 
+            class="form-control" id="lastName"
+            minlength="3"
+            required pattern="[a-z A-Z]*"
+            required 
+            #lastName = "ngModel"/>
+            <div [hidden]="lastName.valid || lastName.pristine" 
+              class="alert alert-warning"
+              *ngIf="lastName.errors && lastName.errors.required">
+              <fa name="exclamation-triangle"></fa>lastName name is required
+            </div>
+    </div>
+    <button type="submit" class="btn btn-success btn-block" 
+            [disabled]="!userForm.form.valid">
+             <fa *ngIf="user._id < 0" name="user-plus"></fa>
+             <fa *ngIf="user._id > 0" name="edit"></fa>
+            </button>
+  </form>
+  <button class="btn btn-block" (click)= "clearForm()"><fa name="eraser"></fa>Clear</button>
+
+           
+</div>

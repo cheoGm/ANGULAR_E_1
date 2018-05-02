@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { User } from '../../model/User';
 
-import { UserService } from '../user.service';
-import { User } from '../User';
 
 
 @Component({
@@ -11,16 +10,23 @@ import { User } from '../User';
 })
 export class UserAddComponent implements OnInit {
 
-  constructor(private userService:UserService) {
+  @Output() 
+  addUser = new EventEmitter<User>();
+  @Input()
+  user : User = null;
 
+  constructor() {}
+
+  ngOnInit() {}
+
+  onSubmit(userForm){
+    console.log("sending....");
+    console.log(this.user);
+    this.addUser.emit(this.user);
   }
 
-  ngOnInit() {
-
-  }
-
-  public addUser(){
-    this.userService.addUser(new User('new name','new lastname'));
+  clearForm(){
+    this.user = new User("","",-1);
   }
 
 }

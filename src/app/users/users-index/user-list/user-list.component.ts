@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { User } from '../User'
-
-import { UserService } from '../user.service';
+import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
+import { User } from '../../model/User'
 
 @Component({
   selector: 'app-user-list',
@@ -9,13 +7,27 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
+  @Input()
+  users : User[];
 
-   users : User[];
+  @Output()
+  userToEdit = new EventEmitter<User>();
 
-  constructor(private userService : UserService) { }
+  @Output()
+  userToDelete = new EventEmitter<User>();
+
+  constructor() { }
 
   ngOnInit() {
-    this.users = this.userService.showUsers();
+  }
+
+  public setEditUser(user : User){
+    this.userToEdit.emit(user);
+  }
+
+  public deleteUser(user:User){
+    console.log("deleteing.....");
+    this.userToDelete.emit(user);
   }
 
 }

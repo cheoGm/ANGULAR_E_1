@@ -1,25 +1,36 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { UsersRoutingModule } from './users-routing.module';
-import { UserListComponent } from './user-list/user-list.component';
-import { UserAddComponent } from './user-add/user-add.component';
 
-import { UserService } from './user.service';
-import { UserInfoComponent } from './user-info/user-info.component';
+import { UsersRoutingModule } from './users-routing.module';
+import { UserListComponent } from './users-index/user-list/user-list.component';
+import { UserAddComponent } from './users-index/user-add/user-add.component';
+
+import { UserService } from './service/user.service';
+import { UserInfoComponent } from './users-index/user-info/user-info.component';
 import { UsersIndexComponent } from './users-index/users-index.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
 
 @NgModule({
   imports: [
     CommonModule,
-    UsersRoutingModule
+    UsersRoutingModule,
+    FormsModule, 
+    ReactiveFormsModule,
+    AngularFontAwesomeModule
   ],
-  declarations: [UserListComponent, UserAddComponent, UserInfoComponent, UsersIndexComponent],
+  declarations: [
+    UserListComponent, 
+    UserAddComponent, 
+    UserInfoComponent, 
+    UsersIndexComponent
+  ],
   providers:[UserService]
 })
-export class UsersModule { 
+export class UsersModule {
 
-
-
+  
   
 }
