@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Snippet } from '../Snippet';
+import { Snippet } from '../../Snippet';
 
 @Component({
   selector: 'app-snippets-info',
@@ -9,7 +9,7 @@ import { Snippet } from '../Snippet';
 export class SnippetsInfoComponent implements OnInit {
 
   @Input()
-  snippet :Snippet;
+  public snippet :Snippet;
 
   constructor() { }
 

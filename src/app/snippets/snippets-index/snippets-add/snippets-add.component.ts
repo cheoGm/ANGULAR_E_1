@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SnippetsService } from '../snippets.service';
-import { Snippet } from '../Snippet';
+import { SnippetsService } from '../../snippets.service';
+import { Snippet } from '../../Snippet';
 
 @Component({
   selector: 'app-snippets-add',
@@ -15,7 +15,7 @@ export class SnippetsAddComponent implements OnInit {
   }
 
   public addNewSnippet(){
-      this.snippetsService.addSnippet(new Snippet("title", "description", "code", "tag"));
+      this.snippetsService.addSnippet(new Snippet("title", "description", "code", "tag",100));
   }
 
 }
