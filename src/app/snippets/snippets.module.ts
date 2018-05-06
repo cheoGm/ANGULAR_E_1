@@ -7,11 +7,15 @@ import { SnippetsIndexComponent } from './snippets-index/snippets-index.componen
 import { SnippetsAddComponent } from './snippets-index/snippets-add/snippets-add.component'
 import { SnippetsListComponent } from './snippets-index/snippets-list/snippets-list.component';
 import { SnippetsInfoComponent } from './snippets-index/snippets-info/snippets-info.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   imports: [
     CommonModule,
-    SnippetsRoutingModule
+    SnippetsRoutingModule,
+    ReactiveFormsModule,
+    AngularFontAwesomeModule
   ],
   providers:[SnippetsService],
   declarations: [SnippetsIndexComponent,SnippetsAddComponent,SnippetsListComponent,SnippetsInfoComponent]

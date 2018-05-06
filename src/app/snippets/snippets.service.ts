@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {SnippetsMock} from './SnippetsMock';
-import { Snippet } from './Snippet';
+import { Snippet } from './model/Snippet';
 
 @Injectable()
 export class SnippetsService {

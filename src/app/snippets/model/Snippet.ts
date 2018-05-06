@@ -1,4 +1,4 @@
-import { User } from "../users/model/User";
+import { User } from "../../users/model/User";
 
 export class Snippet{
     public title : String;

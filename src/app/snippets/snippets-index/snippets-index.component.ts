@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SnippetsService } from '../snippets.service';
-import { Snippet } from '../Snippet';
+import { Snippet } from '../model/Snippet';
 
 @Component({
   selector: 'app-snippets-index',
@@ -10,8 +10,7 @@ import { Snippet } from '../Snippet';
 export class SnippetsIndexComponent implements OnInit {
 
   public isSelected = false;
-private snippetsToUpdate : Snippet = {title : "",description : "",code : "",tag : "",_id: -1,Owner:{name:"",lastName:"",_id:""}};
-
+  private snippetsToUpdate : Snippet = new Snippet("","","");
   constructor(private snippetsService : SnippetsService) {}
 
   ngOnInit() {
@@ -39,12 +38,13 @@ private snippetsToUpdate : Snippet = {title : "",description : "",code : "",tag 
 
   public addSnippet(snippet:Snippet){
     console.log("adding"+ snippet);
-    if(snippet != null && snippet._id < 0){
+    if(snippet && !snippet._id){
     this.snippetsService.addSnippet(snippet);
     }else{
       this.snippetsService.editUser(snippet);
     }
-    this.snippetsToUpdate =  new Snippet("","",""); }
+    this.snippetsToUpdate =  new Snippet("","",""); 
+  }
 
 
 }

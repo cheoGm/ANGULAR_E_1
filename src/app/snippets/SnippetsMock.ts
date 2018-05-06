@@ -1,4 +1,5 @@
-import {Snippet} from './Snippet';
+import { Snippet } from "./model/Snippet";
+
 
 export class SnippetsMock{
     public snippets : Snippet[] = [
