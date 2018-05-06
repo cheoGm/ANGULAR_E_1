@@ -10,7 +10,7 @@ import { Snippet } from '../Snippet';
 export class SnippetsIndexComponent implements OnInit {
 
   public isSelected = false;
-  private snippetsToUpdate : Snippet = {title : "",description : "",code : "",tag : "",_id: -1};
+private snippetsToUpdate : Snippet = {title : "",description : "",code : "",tag : "",_id: -1,Owner:{name:"",lastName:"",_id:""}};
 
   constructor(private snippetsService : SnippetsService) {}
 
@@ -40,13 +40,11 @@ export class SnippetsIndexComponent implements OnInit {
   public addSnippet(snippet:Snippet){
     console.log("adding"+ snippet);
     if(snippet != null && snippet._id < 0){
-      snippet._id = this.snippetsService.showSnippets().length+1;
     this.snippetsService.addSnippet(snippet);
     }else{
       this.snippetsService.editUser(snippet);
     }
-    this.snippetsToUpdate =  {title : "",description : "",code : "",tag : "",_id: -1};
-  }
+    this.snippetsToUpdate =  new Snippet("","",""); }
 
 
 }

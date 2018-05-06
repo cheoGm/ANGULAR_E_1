@@ -1,12 +1,12 @@
 export class User{
     public  name: String ;
     public  lastName: String;
-    public _id : number;
+    public _id : String;
 
-    constructor(name: String,lastName:String,id:number) {
+    constructor(name: String,lastName:String) {
         this.name = name;
         this.lastName = lastName;
-        this._id = id;
+        this._id = undefined;
     }
 
 };

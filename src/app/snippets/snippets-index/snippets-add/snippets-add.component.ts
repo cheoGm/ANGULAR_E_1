@@ -15,7 +15,8 @@ export class SnippetsAddComponent implements OnInit {
   }
 
   public addNewSnippet(){
-      this.snippetsService.addSnippet(new Snippet("title", "description", "code", "tag",100));
+      this.snippetsService.addSnippet(
+        new Snippet("title", "description", "code"));
   }
 
 }

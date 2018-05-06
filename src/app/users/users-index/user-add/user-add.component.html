@@ -1,11 +1,12 @@
 
 <div>
-  <form class="col-xs-4" (ngSubmit)="onSubmit(userForm)" #userForm="ngForm">
+  <form class="col-xs-4" (ngSubmit)="onSubmit(userForm);userForm.reset()" #userForm="ngForm">
     <div class="form-group">
       <label for="userName">Name: </label>
       <input [(ngModel)]="user.name" name="userName" type="text" 
               class="form-control" id="userName" 
               minlength="3"
+              [ValidatePattern] = "pattern"
               required pattern="[a-z A-Z]*"
               required 
               #userName = "ngModel"/>
@@ -13,6 +14,10 @@
               class="alert alert-warning"
               *ngIf="userName.errors && userName.errors.required">
               <fa name="exclamation-triangle"></fa>User name is required
+            </div>
+            <div class="alert alert-warning"
+            *ngIf="userName.errors && userName.errors.textContains">
+                Text do not start with uppercase.
             </div>
     </div>
     <div class="form-group">
@@ -31,11 +36,11 @@
     </div>
     <button type="submit" class="btn btn-success btn-block" 
             [disabled]="!userForm.form.valid">
-             <fa *ngIf="user._id < 0" name="user-plus"></fa>
-             <fa *ngIf="user._id > 0" name="edit"></fa>
+             <fa *ngIf="!user._id" name="user-plus"></fa>
+             <fa *ngIf="user._id" name="edit"></fa>
             </button>
   </form>
-  <button class="btn btn-block" (click)= "clearForm()"><fa name="eraser"></fa>Clear</button>
+  <button class="btn btn-block" (click)= "clearForm() "><fa name="eraser"></fa>Clear</button>
 
            
 </div>

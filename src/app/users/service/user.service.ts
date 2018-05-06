@@ -3,46 +3,30 @@ import { Injectable } from '@angular/core';
 import {UserMock} from '../UsersMock';
 
 import {User} from '../model/User'
+import { DataService } from '../../share/data.service';
 
 @Injectable()
 export class UserService {
 
   private usersData : UserMock = new UserMock();
 
-  constructor() { }
+  constructor(public dataService:DataService) { }
 
   public  showUsers() {
-    return this.usersData.users;
+    return this.dataService.getAll('/api/users');
   }
 
   public editUser(user : User){
-    for(var i = 0;i < this.usersData.users.length;i++){
-      console.log(this.usersData.users[i]._id+ "=="+ user._id);
-         if(this.usersData.users[i]._id == user._id){
-           this.usersData.users[i].name = user.name;
-           this.usersData.users[i].lastName = user.lastName;
-           break;
-         }
-       }
+    return this.dataService.put('/api/users/'+user._id,{'user':user});
   }
 
   public addUser(newUser : User){
-    console.log("adding user");
-    this.usersData.users.push(newUser);
+    console.log(newUser);
+    this.dataService.post('/api/users',{user:newUser});
   }
 
   public removeUser(user:User){
-    console.log("......");
-   
-     var index;
-     for(var i = 0;i < this.usersData.users.length;i++){
-       console.log(this.usersData.users[i]._id+ "=="+ user._id);
-          if(this.usersData.users[i]._id == user._id){
-            this.usersData.users.splice(i,1);
-            break;
-          }
-          
-        }
+    return this.dataService.delete('/api/users/'+user._id);
   }
 
 }

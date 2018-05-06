@@ -13,8 +13,8 @@ export class UserAddComponent implements OnInit {
   @Output() 
   addUser = new EventEmitter<User>();
   @Input()
-  user : User = null;
-
+  user : User = new User("","");
+  private pattern :string = '^[A-Z]';
   constructor() {}
 
   ngOnInit() {}
@@ -23,10 +23,12 @@ export class UserAddComponent implements OnInit {
     console.log("sending....");
     console.log(this.user);
     this.addUser.emit(this.user);
+    this.user = new User("","");
   }
 
   clearForm(){
-    this.user = new User("","",-1);
+    this.user = null;
+    this.addUser.emit(this.user);
   }
 
 }

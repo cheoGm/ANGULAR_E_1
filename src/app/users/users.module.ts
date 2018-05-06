@@ -11,6 +11,7 @@ import { UserService } from './service/user.service';
 import { UserInfoComponent } from './users-index/user-info/user-info.component';
 import { UsersIndexComponent } from './users-index/users-index.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { ValidatePatternDirective } from '../share/validate-pattern.directive';
 
 
 @NgModule({
@@ -25,8 +26,9 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     UserListComponent, 
     UserAddComponent, 
     UserInfoComponent, 
-    UsersIndexComponent
-  ],
+    UsersIndexComponent,
+    ValidatePatternDirective
+   ],
   providers:[UserService]
 })
 export class UsersModule {

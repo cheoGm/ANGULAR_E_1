@@ -3,5 +3,5 @@
 <button class="btn btn-link" (click)="list()">list of users</button>
 
 <app-user-add *ngIf="!isSelected" (addUser) = "addUser($event)" [user]="UserToEdit()"></app-user-add>
-<app-user-list *ngIf="isSelected" [users]="getUsers()" (userToEdit)="updateUser($event)" (userToDelete)="userToDelete($event)"></app-user-list>  
+<app-user-list *ngIf="isSelected" [users]="users" (userToEdit)="updateUser($event)" (userToDelete)="userToDelete($event)"></app-user-list>  
 </div>
