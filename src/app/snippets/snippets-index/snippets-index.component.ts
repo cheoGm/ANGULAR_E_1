@@ -37,11 +37,12 @@ export class SnippetsIndexComponent implements OnInit {
   }
 
   public addSnippet(snippet:Snippet){
-    console.log("adding"+ snippet);
+    console.log("adding..."+ snippet.title);
     if(snippet && !snippet._id){
     this.snippetsService.addSnippet(snippet);
     }else{
-      this.snippetsService.editUser(snippet);
+
+     // this.snippetsService.editUser(snippet);
     }
     this.snippetsToUpdate =  new Snippet("","",""); 
   }

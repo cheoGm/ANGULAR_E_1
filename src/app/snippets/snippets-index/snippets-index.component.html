@@ -2,6 +2,6 @@
     <button class="btn btn-link" (click)="add()">Snippet it</button>
     <button class="btn btn-link" (click)="list()">show snippets</button>
     
-<app-snippets-add *ngIf="!isSelected"></app-snippets-add>
+<app-snippets-add *ngIf="!isSelected" (addSnippet) = "addSnippet($event)"></app-snippets-add>
 <app-snippets-list [snippets] = "snippets" *ngIf="isSelected"></app-snippets-list>
 </div>

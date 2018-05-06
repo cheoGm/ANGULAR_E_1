@@ -1,11 +1,11 @@
-<form id="snptForm" [formGroup]="snippetForm" novalidate>
+<form id="snptForm" [formGroup]="snippetForm" (ngSubmit)="onSubmit()" novalidate>
   <div class="form-group">
     <label class="center-block">
           Name:
     </label>
-    <input class="form-control" formControlName="snipName" value="Snippet Name"/>
-    <div *ngIf="!snippetForm.controls['snipName'].valid && (snippetForm.controls['snipName'].dirty)">
-        <div *ngIf="snippetForm.controls['snipName'].errors.required" class="alert alert-warning">
+    <input class="form-control" formControlName="title" value="Snippet Name"/>
+    <div *ngIf="!snippetForm.controls['title'].valid && (snippetForm.controls['title'].dirty)">
+        <div *ngIf="snippetForm.controls['title'].errors.required" class="alert alert-warning">
           name is requiered
         </div>
     </div>
@@ -14,10 +14,10 @@
       <label class="center-block">
         Description:
       </label>
-      <textarea rows="4" cols="50" form="snptForm" class="form-control" formControlName="snipDescription">
+      <textarea rows="4" cols="50" form="snptForm" class="form-control" formControlName="description">
           Enter text here...</textarea>
-      <div *ngIf="!snippetForm.controls['snipDescription'].valid && (snippetForm.controls['snipDescription'].dirty)">
-          <div *ngIf="snippetForm.controls['snipDescription'].errors.required" class="alert alert-warning">
+      <div *ngIf="!snippetForm.controls['description'].valid && (snippetForm.controls['description'].dirty)">
+          <div *ngIf="snippetForm.controls['description'].errors.required" class="alert alert-warning">
             description is requiered
           </div>
       </div>
@@ -26,9 +26,9 @@
       <label class="center-block">
         Tag:
       </label>
-      <input class="form-control" formControlName="snipTag"/>
-      <div *ngIf="!snippetForm.controls['snipTag'].valid && (snippetForm.controls['snipTag'].dirty)">
-          <div *ngIf="snippetForm.controls['snipTag'].errors.required" class="alert alert-warning">
+      <input class="form-control" formControlName="tag"/>
+      <div *ngIf="!snippetForm.controls['tag'].valid && (snippetForm.controls['tag'].dirty)">
+          <div *ngIf="snippetForm.controls['tag'].errors.required" class="alert alert-warning">
             tag is requiered
           </div>
       </div>
@@ -37,16 +37,16 @@
       <label class="center-block">
         Code:
       </label>
-      <textarea rows="4" cols="50" form="snptForm" class="form-control" formControlName="snipCode">
+      <textarea rows="4" cols="50" form="snptForm" class="form-control" formControlName="code">
           Enter text here...</textarea>
-      <div *ngIf="!snippetForm.controls['snipCode'].valid && (snippetForm.controls['snipCode'].dirty)">
+      <div *ngIf="!snippetForm.controls['code'].valid && (snippetForm.controls['code'].dirty)">
           <div *ngIf="snippetForm.controls['snipCode'].errors.required" class="alert alert-warning">
             code is requiered
           </div>
       </div>
   </div>
   <button type="submit" class="btn btn-success btn-block">
-             <fa *ngIf="!snippetToAdd._id" name="user-plus"></fa>
+             <fa *ngIf="!snippetToAdd._id" name="plus-square"></fa>
              <fa *ngIf="snippetToAdd._id" name="edit"></fa>
   </button>
 </form>

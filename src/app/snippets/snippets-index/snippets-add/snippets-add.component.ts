@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SnippetsService } from '../../snippets.service';
 import { Snippet } from '../../model/Snippet';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
@@ -11,8 +11,10 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 })
 export class SnippetsAddComponent implements OnInit {
 
+  @Output()
+  addSnippet = new EventEmitter<any>();
   private snippetToAdd : Snippet = new Snippet("","","");
-  private snippetForm :FormGroup;
+  public snippetForm :FormGroup;
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -20,12 +22,18 @@ export class SnippetsAddComponent implements OnInit {
     this.initFoorm();
   }
 
+  public onSubmit(){
+    console.log("submit....");
+    console.log(this.snippetForm.value);
+    this.addSnippet.emit(this.snippetForm.value);
+  }
+
   private initFoorm(){
       this.snippetForm = this.formBuilder.group({
-          snipName: new FormControl('snippet name',[Validators.required]),
-          snipDescription: new FormControl('description',[Validators.required]),
-          snipTag: new FormControl('Java/c++/javascript',[Validators.required]),
-          snipCode: new FormControl('class....',[Validators.required])
+          title: new FormControl('snippet name',[Validators.required]),
+          description: new FormControl('description',[Validators.required]),
+          tag: new FormControl('Java/c++/javascript',[Validators.required]),
+          code: new FormControl('class....',[Validators.required])
       });
   }
 
