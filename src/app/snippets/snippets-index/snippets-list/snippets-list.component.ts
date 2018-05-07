@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { SnippetsService } from '../../snippets.service';
 import { Snippet } from '../../model/Snippet';
 
 @Component({

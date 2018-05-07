@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SnippetsService } from '../snippets.service';
 import { Snippet } from '../model/Snippet';
+import { SnippetsService } from '../service/snippets.service';
 
 @Component({
   selector: 'app-snippets-index',
@@ -41,7 +41,6 @@ export class SnippetsIndexComponent implements OnInit {
     if(snippet && !snippet._id){
     this.snippetsService.addSnippet(snippet);
     }else{
-
      // this.snippetsService.editUser(snippet);
     }
     this.snippetsToUpdate =  new Snippet("","",""); 

@@ -1,5 +1,4 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { SnippetsService } from '../../snippets.service';
 import { Snippet } from '../../model/Snippet';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
