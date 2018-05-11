@@ -18,9 +18,11 @@ export class SnippetsService {
 
   public editSnippet(snippet : Snippet){
    console.log("snippet edit service");
+   this.dataService.put('/api/snippet/'+snippet._id,snippet);
   }
 
   public removeSnippet(snippet: Snippet){
+    console.log(snippet);
     return this.dataService.delete('/api/snippet/'+snippet._id);
   }
 
