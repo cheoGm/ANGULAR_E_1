@@ -23,14 +23,15 @@ function updateSnippet(snippetParam) {
 }
 
 function addSnippet(snippetParam) {
-    var user = await(snippetModel.create(snippetParam));
-    return user;
+    console.log("addig resource...");
+    var snippet = await(snippetModel.create(snippetParam));
+    return snippet;
 }
 
 module.exports = {
-    getUsers: async(getSnippets),
-    getUser: async(getSnippet),
-    deleteUser: async(deleteSnippet),
-    updateUser: async(updateSnippet),
-    addUser: async(addSnippet)
+    getSnippets: async(getSnippets),
+    getSnippet: async(getSnippet),
+    deleteSnippet: async(deleteSnippet),
+    updateSnippet: async(updateSnippet),
+    addSnippet: async(addSnippet)
 };

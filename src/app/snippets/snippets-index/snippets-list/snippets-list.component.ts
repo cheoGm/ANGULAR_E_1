@@ -21,13 +21,15 @@ export class SnippetsListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
-  public setEditUser(snippet : Snippet){
+  public setEditSnippet(snippet : Snippet){
+    console.log("edit.....");
     this.snippetToEdit.emit(snippet);
   }
 
-  public deleteUser(snippet:Snippet){
+  public deleteSnippet(snippet:Snippet){
     console.log("deleteing.....");
     this.snippetToDelete.emit(snippet);
   }

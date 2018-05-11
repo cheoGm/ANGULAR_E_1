@@ -8,51 +8,51 @@ function getSnippet(id) {
     console.log('get snippet by ' + id);
     try {
         if(id){
-            result = await (snippetRsrc.getUser(id));
+            result = await (snippetRsrc.getSnippet(id));
         } else {
-            result = await (snippetRsrc.getUsers());
+            result = await (snippetRsrc.getSnippets());
         }
         console.log('result length ' + result.length);    
     } catch(error) {
         throw error;
     }
-    return { user: result };
+    return { snippet: result };
 }
 
 function updateSnippet(user) {
     var result;
     console.log('update snippet by ' + user._id);
     try {
-        result = await (snippetRsrc.updateUser(user));
+        result = await (snippetRsrc.updateSnippet(user));
         console.log('result length ' + result.length);    
     } catch(error) {
         throw error;
     }
-    return { user: result };
+    return { snippet: result };
 }
 
 function deleteSnippet(id) {
     var result;
     console.log('delete snippet by ' + id);
     try {
-        result = await (snippetRsrc.deleteUser(id));
+        result = await (snippetRsrc.deleteSnippet(id));
         console.log('result length ' + result.length);    
     } catch(error) {
         throw error;
     }
-    return { user: result };
+    return { snippet: result };
 }
 
 function postSnippet(user) {
     var result;
     console.log('post snippet service',user);
     try {
-        result = await (snippetRsrc.addUser(user));
+        result = await (snippetRsrc.addSnippet(user));
         console.log('result length ' + result.length);    
     } catch(error) {
         throw error;
     }
-    return { user: result };
+    return { snippet: result };
 }
 
 module.exports.getSnippet = async(getSnippet);

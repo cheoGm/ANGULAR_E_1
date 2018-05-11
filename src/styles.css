@@ -17,6 +17,10 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	background-image: url("/assets/img/vector.png");
+	background-repeat: repeat;
+
+
 }
 ol, ul {
 	list-style: none;

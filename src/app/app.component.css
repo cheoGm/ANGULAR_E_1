@@ -1,5 +1,12 @@
 nav{
-    margin-bottom: 8%;
     padding-left: 2.5%;
+    background-color: white;
+    padding-bottom: 1%;
 }
 
+.app{
+    text-align:center;background-color: white; 
+    border-bottom: 1px solid gba(247, 247, 247, 0.932);; 
+    border-radius: 1% !important;
+
+}

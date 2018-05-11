@@ -1,8 +1,11 @@
-<h3>
-  snippets-list!
-</h3>
+
 <ul>
-    <li *ngFor="let snippet of snippets"> 
-        <app-snippets-info [snippet]="snippet"></app-snippets-info>
+    <li *ngFor="let snippet of snippets" class="container-fluid"> 
+ 
+        <app-snippets-info class="" [snippet]="snippet"></app-snippets-info>
+        <div>
+          <button (click)="setEditSnippet(snippet)"  class="btn btn-warning"><fa name="edit"></fa>Edit</button>
+          <button (click)="deleteSnippet(snippet)"  class="btn btn-danger offset-1"><fa name="trash"></fa>Delete</button>
+        </div>
       </li>
 </ul>
